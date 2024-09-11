@@ -2,6 +2,8 @@
 #include <string.h>
 #include <stdlib.h>
 
+
+
 struct etudiant
 {
     int id;
@@ -11,14 +13,107 @@ struct etudiant
     int note;
 };
 
+
+struct etudiant t[100];
+
+
+
+// data principale
+
+void data(){
+    t[0].id = 1;
+    strcpy(t[0].name, "younes rabiaa");
+    strcpy(t[0].date_de_naissance, "10-09-2005");
+    strcpy(t[0].classe, "Math");
+    t[0].note = 18;
+
+    t[1].id = 2;
+    strcpy(t[1].name, "merwan kamli");
+    strcpy(t[1].date_de_naissance, "15-01-2006");
+    strcpy(t[1].classe, "Math");
+    t[1].note = 10;
+
+    t[2].id = 3;
+    strcpy(t[2].name, "jawad rahimi");
+    strcpy(t[2].date_de_naissance, "26-07-2004");
+    strcpy(t[2].classe, "Math");
+    t[2].note = 7;
+
+    t[3].id = 4;
+    strcpy(t[3].name, "hamza kabo");
+    strcpy(t[3].date_de_naissance, "01-12-2005");
+    strcpy(t[3].classe, "Math");
+    t[3].note = 13;
+
+
+
+    t[4].id = 5;
+    strcpy(t[4].name, "kamal maro");
+    strcpy(t[4].date_de_naissance, "12-09-2005");
+    strcpy(t[4].classe, "Informatique");
+    t[4].note = 7;
+
+    t[5].id = 6;
+    strcpy(t[5].name, "rayan sbati");
+    strcpy(t[5].date_de_naissance, "29-10-2005");
+    strcpy(t[5].classe, "Physique");
+    t[5].note = 9;
+
+    t[6].id = 7;
+    strcpy(t[6].name, "khadija kamili");
+    strcpy(t[6].date_de_naissance, "10-01-2006");
+    strcpy(t[6].classe, "Physique");
+    t[6].note = 19;
+
+    t[7].id = 8;
+    strcpy(t[7].name, "ahmed saroukh");
+    strcpy(t[7].date_de_naissance, "26-07-2004");
+    strcpy(t[7].classe, "Physique");
+    t[7].note = 15;
+
+
+
+
+    t[8].id = 9;
+    strcpy(t[8].name, "hiba rima");
+    strcpy(t[8].date_de_naissance, "01-12-2006");
+    strcpy(t[8].classe, "Physique");
+    t[8].note = 10;
+
+
+    t[9].id = 10;
+    strcpy(t[9].name, "saad jbar");
+    strcpy(t[9].date_de_naissance, "13-01-2006");
+    strcpy(t[9].classe, "Informatique");
+    t[9].note = 11;
+
+    t[10].id = 11;
+    strcpy(t[10].name, "nohaila rayan");
+    strcpy(t[10].date_de_naissance, "17-11-2004");
+    strcpy(t[10].classe, "Informatique");
+    t[10].note = 17;
+
+    t[11].id = 12;
+    strcpy(t[11].name, "walid mahrouch");
+    strcpy(t[11].date_de_naissance, "01-02-2006");
+    strcpy(t[11].classe, "Informatique");
+    t[11].note = 4;
+}
+
+
+  // main start
 int main()
 {
     int programme_stop = 0;
-    struct etudiant t[100];
-    int counter = 0;
+    int counter = 12;
+    data();
+
+
+  // do start
 
     do
     {
+        // afficher la liste principale
         printf("\n=========== Pour Ajoutez un eleve entrer '1'\n");
         printf("=========== Pour afficher les details de tout les etudiants entrer '2'\n");
         printf("=========== Pour modifier les informations d'un etudiant entrer '3'\n");
@@ -42,8 +137,16 @@ int main()
         int counter_informatique = 0;
         switch (answer)
         {
+
+
+
+
+
+
         case 1:
             // Ajoute un élève:
+
+
             system("cls");
             printf("===== Pour ajoute un eleve sur class Math entrer '1'\n");
             printf("===== Pour ajoute un eleve sur class Physique entrer '2'\n");
@@ -87,6 +190,13 @@ int main()
             counter++;
             break;
 
+
+
+
+
+
+
+
         case 2:
             // affichage des eleves
             system("cls");
@@ -95,14 +205,17 @@ int main()
             printf("===== Pour afficher tout les eleves de class Physique entrer '3'\n");
             printf("===== Pour afficher tout les eleves de class Informatique entrer '4'\n");
             printf("===== Pour afficher tout les eleves A-Z entrer '5'\n");
-            printf("===== Pour afficher tout les eleves Z-A entrer '6'\n");
             printf("===== Retourn a la liste principale entrer '0'\n");
 
             int affichage_type;
             printf("\n entrer votre choix: ");
             scanf("%i", &affichage_type);
             getchar();
-
+            int save_id;
+            char save_nom[100];
+            char save_date[100];
+            char save_class[100];
+            int save_note;
 
             switch (affichage_type)
             {
@@ -111,8 +224,8 @@ int main()
                 {
                     printf("============ l'eleve ============\n");
                     printf("ID: %i\n", t[i].id);
-                    printf("Nom et Prenom: %s", t[i].name);
-                    printf("Date de naissance: %s", t[i].date_de_naissance);
+                    printf("Nom et Prenom: %s\n", t[i].name);
+                    printf("Date de naissance: %s\n", t[i].date_de_naissance);
                     printf("Class: %s\n", t[i].classe);
                     printf("La note: %i/20\n", t[i].note);
                 }
@@ -125,8 +238,8 @@ int main()
                     if(strcmp(t[i].classe,"Math") == 0){
                         printf("============ l'eleve ============\n");
                         printf("ID: %i\n", t[i].id);
-                        printf("Nom et Prenom: %s", t[i].name);
-                        printf("Date de naissance: %s", t[i].date_de_naissance);
+                        printf("Nom et Prenom: %s\n", t[i].name);
+                        printf("Date de naissance: %s\n", t[i].date_de_naissance);
                         printf("Class: %s\n", t[i].classe);
                         printf("La note: %i/20\n", t[i].note);
                     }
@@ -141,8 +254,8 @@ int main()
                     {
                         printf("============ l'eleve ============\n");
                         printf("ID: %i\n", t[i].id);
-                        printf("Nom et Prenom: %s", t[i].name);
-                        printf("Date de naissance: %s", t[i].date_de_naissance);
+                        printf("Nom et Prenom: %s\n", t[i].name);
+                        printf("Date de naissance: %s\n", t[i].date_de_naissance);
                         printf("Class: %s\n", t[i].classe);
                         printf("La note: %i/20\n", t[i].note);
                     }
@@ -156,8 +269,8 @@ int main()
                     {
                         printf("============ l'eleve ============\n");
                         printf("ID: %i\n", t[i].id);
-                        printf("Nom et Prenom: %s", t[i].name);
-                        printf("Date de naissance: %s", t[i].date_de_naissance);
+                        printf("Nom et Prenom: %s\n", t[i].name);
+                        printf("Date de naissance: %s\n", t[i].date_de_naissance);
                         printf("Class: %s\n", t[i].classe);
                         printf("La note: %i/20\n", t[i].note);
                     }
@@ -165,19 +278,46 @@ int main()
 
                 break;
             case 5:
-                char a[100];
+
+
                 for (int i = 0; i < counter; i++)
                 {
                     for (int j = 0; j < counter - 1; j++)
                     {
-                        if(strcmp(t[i].name,t[i + 1].name) < 0){
-                            strcpy(a, t[i].name);
-                            strcpy(t[i].name, t[i + 1].name);
-                            strcpy(t[i + 1].name, a);
+                        if(strcmp(t[j].name,t[j + 1].name) > 0){
+                            save_id = t[j].id;
+                            t[j].id = t[j + 1].id;
+                            t[j + 1].id = save_id;
+
+                            strcpy(save_nom, t[j].name);
+                            strcpy(t[j].name, t[j + 1].name);
+                            strcpy(t[j + 1].name, save_nom);
+
+                            strcpy(save_date, t[j].date_de_naissance);
+                            strcpy(t[j].date_de_naissance, t[j + 1].date_de_naissance);
+                            strcpy(t[j + 1].date_de_naissance, save_date);
+
+                            strcpy(save_class, t[j].classe);
+                            strcpy(t[j].classe, t[j + 1].classe);
+                            strcpy(t[j + 1].classe, save_class);
+
+                            save_note = t[j].note;
+                            t[j].note = t[j + 1].note;
+                            t[j + 1].note = save_note;
 
                         }
                     }
                     
+                }
+
+                for (int i = 0; i < counter; i++)
+                {
+                    printf("============ l'eleve ============\n");
+                    printf("ID: %i\n", t[i].id);
+                    printf("Nom et Prenom: %s\n", t[i].name);
+                    printf("Date de naissance: %s\n", t[i].date_de_naissance);
+                    printf("Class: %s\n", t[i].classe);
+                    printf("La note: %i/20\n", t[i].note);
                 }
                 
 
@@ -190,6 +330,14 @@ int main()
             
             break;
 
+
+
+
+
+
+
+
+        // modifie les élèves
         case 3:
             system("cls");
             printf("Entrer l'ID d'un eleve: ");
@@ -284,6 +432,19 @@ int main()
 
             break;
 
+
+
+
+
+
+
+
+
+
+
+
+
+        // suppreme un élève
         case 4:
 
             system("cls");
@@ -315,6 +476,18 @@ int main()
 
             break;
 
+
+
+
+
+
+
+
+
+
+
+        // Recherche un élève
+
         case 5:
 
             system("cls");
@@ -328,8 +501,8 @@ int main()
                 {
                     printf("\n\n=========== Votre eleve est: ===========\n\n");
                     printf("ID: %i\n", t[i].id);
-                    printf("Nom et Prenom: %s", t[i].name);
-                    printf("Date de naissance: %s", t[i].date_de_naissance);
+                    printf("Nom et Prenom: %s\n", t[i].name);
+                    printf("Date de naissance: %s\n", t[i].date_de_naissance);
                     printf("Class: %s\n", t[i].classe);
                     printf("La note: %i/20\n", t[i].note);
                 }
@@ -341,8 +514,16 @@ int main()
 
             break;
 
-        case 6:
 
+
+
+        
+
+
+        // Les notes moyenne
+
+        case 6:
+            system("cls");
             printf("\n\n=========== Les notes moyenne ===========\n\n");
 
             int notes_math = 0;
@@ -382,9 +563,13 @@ int main()
 
             break;
 
-        case 7:
 
-            printf("\n\n=========== Les notes moyenne ===========\n\n");
+
+        // Statistique de l'école
+
+        case 7:
+            system("cls");
+            printf("\n\n=========== Statistique de l'école ===========\n\n");
             int meilleur__math = 0;
             int meilleur__pc = 0;
             int meilleur__info = 0;
@@ -421,15 +606,68 @@ int main()
                 }
             }
 
-            printf("===== Le nombre d'etudiants ayant une note supérieure ou égale à 10/20 sur class Math: %i/20 => %i%%", meilleur__math, (meilleur__math * 100) / counter_math);
-            printf("===== Le nombre d'etudiants ayant une note supérieure ou égale à 10/20 sur class Physique: %i/20 => %i%%", meilleur__pc, (meilleur__pc * 100) / counter_physique);
-            printf("===== Le nombre d'etudiants ayant une note supérieure ou égale à 10/20 sur class Informatique: %i/20 => %i%%", meilleur__info, (meilleur__info * 100) / counter_informatique);
+            printf("===== Le nombre d'etudiants ayant une note superieure ou egale a 10/20 sur class Math: %i/20 => %i%%\n", meilleur__math, (meilleur__math * 100) / counter_math);
+            printf("===== Le nombre d'etudiants ayant une note superieure ou egale a 10/20 sur class Physique: %i/20 => %i%%\n", meilleur__pc, (meilleur__pc * 100) / counter_physique);
+            printf("===== Le nombre d'etudiants ayant une note superieure ou egale a 10/20 sur class Informatique: %i/20 => %i%%\n", meilleur__info, (meilleur__info * 100) / counter_informatique);
             printf("===== Le nombre des eleves de class Math est: %i => %i%% \n", counter_math, (counter_math * 100) / counter);
             printf("===== Le nombre des eleves de class Physique est: %i => %i%%\n", counter_physique, (counter_physique * 100) / counter);
             printf("===== Le nombre des eleves de class Informatique est: %i => %i%%\n", counter_informatique, (counter_informatique * 100) / counter);
             printf("===== Le nombre globale des eleves est: %i\n", counter);
 
-            printf("======== les 3 étudiants ayant les meilleures notes sont: ========");
+
+            break;
+
+
+
+
+
+
+
+
+
+            // afficher Les 3 meilleurs eleves dans l'ecole
+        case 8:
+            system("cls");
+            printf("\n\n=========== Les 3 meilleurs eleves dans l'ecole ===========\n\n");
+
+            for (int i = 0; i < counter; i++)
+            {
+                for (int j = 0; j < counter - 1; j++)
+                {
+                    if (t[j].note < t[j + 1].note)
+                    {
+                        save_id = t[j].id;
+                        t[j].id = t[j + 1].id;
+                        t[j + 1].id = save_id;
+
+                        strcpy(save_nom, t[j].name);
+                        strcpy(t[j].name, t[j + 1].name);
+                        strcpy(t[j + 1].name, save_nom);
+
+                        strcpy(save_date, t[j].date_de_naissance);
+                        strcpy(t[j].date_de_naissance, t[j + 1].date_de_naissance);
+                        strcpy(t[j + 1].date_de_naissance, save_date);
+
+                        strcpy(save_class, t[j].classe);
+                        strcpy(t[j].classe, t[j + 1].classe);
+                        strcpy(t[j + 1].classe, save_class);
+
+                        save_note = t[j].note;
+                        t[j].note = t[j + 1].note;
+                        t[j + 1].note = save_note;
+                    }
+                }
+            }
+
+            for (int i = 0; i < 3; i++)
+            {
+                printf("============ l'eleve ============\n");
+                printf("ID: %i\n", t[i].id);
+                printf("Nom et Prenom: %s\n", t[i].name);
+                printf("Date de naissance: %s\n", t[i].date_de_naissance);
+                printf("Class: %s\n", t[i].classe);
+                printf("La note: %i/20\n", t[i].note);
+            }
 
             break;
 
