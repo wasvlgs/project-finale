@@ -370,7 +370,7 @@ int main()
                         printf("Entrer le nom et le prenom d'etudiant: ");
                         fgets(t[i].name, sizeof(t[i].name), stdin);
 
-                        printf("\n\n======== les informations a ete modifie avec success ========\n\n");
+                        printf("\n\n======== les informations a ete modifie avec succes ========\n\n");
 
                         search_stop = 1;
 
@@ -381,7 +381,7 @@ int main()
                         printf("\nEntrer la date de naissance d'etudiant ex(DD-MM-YYYY): ");
                         fgets(t[i].date_de_naissance, sizeof(t[i].date_de_naissance), stdin);
 
-                        printf("\n\n======== les informations a ete modifie avec success ========\n\n");
+                        printf("\n\n======== les informations a ete modifie avec succes ========\n\n");
                         search_stop = 1;
                         break;
                     case 3:
@@ -410,7 +410,7 @@ int main()
                         {
                             break;
                         }
-                        printf("\n\n======== les informations a ete modifie avec success ========\n\n");
+                        printf("\n\n======== les informations a ete modifie avec succes ========\n\n");
                         search_stop = 1;
                         break;
                     case 4:
@@ -419,7 +419,7 @@ int main()
                         printf("\nEntrer la note d'etudiant (/20): ");
                         scanf("%i", &t[i].note);
 
-                        printf("\n\n======== les informations a ete modifie avec success ========\n\n");
+                        printf("\n\n======== les informations a ete modifie avec succes ========\n\n");
                         search_stop = 1;
                         break;
                     default:
@@ -429,7 +429,7 @@ int main()
             }
             if (search_stop == 0)
             {
-                printf("\n\n=========== Votre recherche n'execte pas ===========\n\n");
+                printf("\n\n=========== Votre recherche n'existe pas ===========\n\n");
             }
 
             break;
@@ -468,12 +468,12 @@ int main()
                     counter--;
 
                     search_stop = 1;
-                    printf("\n\n======== l'etudiant a ete supprimer avec success ========\n\n");
+                    printf("\n\n======== l'etudiant a ete supprimer avec succes ========\n\n");
                 }
             }
             if (search_stop == 0)
             {
-                printf("\n\n=========== Votre recherche n'execte pas ===========\n\n");
+                printf("\n\n=========== Votre recherche n'existe pas ===========\n\n");
             }
 
             break;
@@ -524,7 +524,7 @@ int main()
                 }
                 if (search_stop == 0)
                 {
-                    printf("\n\n=========== Votre recherche n'execte pas ===========\n\n");
+                    printf("\n\n=========== Votre recherche n'existe pas ===========\n\n");
                 }
 
                 break;
@@ -532,7 +532,7 @@ int main()
                 printf("Entrer le nom d'un eleve: ");
                 fgets(eleve_name, sizeof(eleve_name), stdin);
 
-                int search_stop = 0; // Initialize the variable
+                int search_stop = 0;
 
                 for (int i = 0; i < counter; i++)
                 {
@@ -544,8 +544,8 @@ int main()
                         printf("Date de naissance: %s", t[i].date_de_naissance);
                         printf("Class: %s\n", t[i].classe);
                         printf("La note: %i/20\n", t[i].note);
-                        search_stop = 1; // Corrected assignment
-                        break;           // Optional: exit loop after finding the student
+                        search_stop = 1;
+                        break;           
                     }
                 }
 
@@ -618,10 +618,13 @@ int main()
 
         case 7:
             system("cls");
-            printf("\n\n=========== Statistique de l'école ===========\n\n");
             int meilleur__math = 0;
             int meilleur__pc = 0;
             int meilleur__info = 0;
+
+
+            
+            printf("\n\n=========== les etudiants ayant reussi  ===========\n\n");
 
             for (int i = 0; i < counter; i++)
             {
@@ -630,6 +633,7 @@ int main()
                     counter_math++;
                     if (t[i].note >= 10)
                     {
+                        printf("===== l'etudiant %s sur class %s avec la note: %i/20\n",t[i].name,t[i].classe, t[i].note);
                         meilleur__math++;
                     }
                 }
@@ -638,6 +642,7 @@ int main()
                     counter_physique++;
                     if (t[i].note >= 10)
                     {
+                        printf("===== l'etudiant %s sur class %s avec la note: %i/20\n",t[i].name,t[i].classe, t[i].note);
                         meilleur__pc++;
                     }
                 }
@@ -646,6 +651,7 @@ int main()
                     counter_informatique++;
                     if (t[i].note >= 10)
                     {
+                        printf("===== l'etudiant %s sur class %s avec la note: %i/20\n",t[i].name,t[i].classe, t[i].note);
                         meilleur__info++;
                     }
                 }
@@ -654,10 +660,11 @@ int main()
                     break;
                 }
             }
+            printf("\n\n===================== Statistique de l'ecole ======================\n\n");
 
-            printf("===== Le nombre d'etudiants ayant une note superieure ou egale a 10/20 sur class Math: %i/20 => %i%%\n", meilleur__math, (meilleur__math * 100) / counter_math);
-            printf("===== Le nombre d'etudiants ayant une note superieure ou egale a 10/20 sur class Physique: %i/20 => %i%%\n", meilleur__pc, (meilleur__pc * 100) / counter_physique);
-            printf("===== Le nombre d'etudiants ayant une note superieure ou egale a 10/20 sur class Informatique: %i/20 => %i%%\n", meilleur__info, (meilleur__info * 100) / counter_informatique);
+            printf("===== Le nombre d'etudiants ayant une note superieure ou egale a 10/20 sur class Math: %i => %i%%\n", meilleur__math, (meilleur__math * 100) / counter_math);
+            printf("===== Le nombre d'etudiants ayant une note superieure ou egale a 10/20 sur class Physique: %i => %i%%\n", meilleur__pc, (meilleur__pc * 100) / counter_physique);
+            printf("===== Le nombre d'etudiants ayant une note superieure ou egale a 10/20 sur class Informatique: %i => %i%%\n", meilleur__info, (meilleur__info * 100) / counter_informatique);
             printf("===== Le nombre des eleves de class Math est: %i => %i%% \n", counter_math, (counter_math * 100) / counter);
             printf("===== Le nombre des eleves de class Physique est: %i => %i%%\n", counter_physique, (counter_physique * 100) / counter);
             printf("===== Le nombre des eleves de class Informatique est: %i => %i%%\n", counter_informatique, (counter_informatique * 100) / counter);
